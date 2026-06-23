@@ -1376,7 +1376,7 @@ body.dark-mode .theme-toggle:hover {
 /* ============================================= */
 body.dark-mode {
   --paper-cream: #1e1e22;
-  --paper-lines: #3e3e44;
+  --paper-lines: #ffffff;
   --paper-margin: #a85862;
   --paper-shadow: rgba(0, 0, 0, 0.7);
   --tape-color: rgba(120, 100, 60, 0.3);

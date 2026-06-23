@@ -409,6 +409,7 @@ a {
   letter-spacing: 1px;
   filter: url(#crayon-light);
   transition: transform 0.3s ease;
+  white-space: nowrap;
 }
 
 .logo:hover .logo-text {
@@ -1547,12 +1548,16 @@ body.dark-mode .nav-links {
     padding: 0.6rem 1rem;
   }
 
+  .theme-hint {
+    display: none !important;
+  }
+
   .logo-text {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .logo-underline {
-    width: 110px;
+    width: 100px;
   }
 
   .hero-title .hero-greeting {

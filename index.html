@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maulana's Book! — A Crayon Doodle Portfolio</title>
+  <meta name="description"
+    content="The colorful, hand-drawn crayon doodle portfolio of Maulana Dzaki Ash Shiddiqi — a natural explorer who views coding as a tool for digital storytelling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400&family=Patrick+Hand&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon"
+    href="data:image/svg+xml;utf8,<svg viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'><path d='M 5 30 L 5 10 Q 15 5 20 10 L 20 30 Q 15 25 5 30 Z' fill='%23F7D547' fill-opacity='0.4' stroke='%23F4943E' stroke-width='2' stroke-linejoin='round'/><path d='M 35 30 L 35 10 Q 25 5 20 10 L 20 30 Q 25 25 35 30 Z' fill='%23F48FB1' fill-opacity='0.4' stroke='%23E8453C' stroke-width='2' stroke-linejoin='round'/><line x1='20' y1='10' x2='20' y2='30' stroke='%238D6E63' stroke-width='2' stroke-linecap='round'/></svg>" />
+</head>
+
+<body>
+
+  <!-- ============================================= -->
+  <!--  SVG FILTERS — The secret sauce for crayon!   -->
+  <!-- ============================================= -->
+  <svg class="svg-filters" aria-hidden="true">
+    <defs>
+      <!-- Heavy crayon texture for borders & shapes -->
+      <filter id="crayon-heavy">
+        <feTurbulence type="turbulence" baseFrequency="0.03 0.06" numOctaves="4" seed="2" result="turbulence" />
+        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="6" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <!-- Lighter crayon texture for text & subtle elements -->
+      <filter id="crayon-light">
+        <feTurbulence type="turbulence" baseFrequency="0.04 0.07" numOctaves="3" seed="5" result="turbulence" />
+        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <!-- Extra wobbly for decorative doodles -->
+      <filter id="crayon-wobbly">
+        <feTurbulence type="turbulence" baseFrequency="0.02 0.05" numOctaves="5" seed="8" result="turbulence" />
+        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="8" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+      <!-- Paper grain texture overlay -->
+      <filter id="paper-grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" seed="1" result="noise" />
+        <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise" />
+        <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blended" />
+      </filter>
+      <!-- Pencil stroke texture -->
+      <filter id="pencil-stroke">
+        <feTurbulence type="turbulence" baseFrequency="0.05 0.08" numOctaves="2" seed="12" result="turbulence" />
+        <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="4" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- ============================================= -->
+  <!--  DOODLE DECORATIONS (floating scribbles)      -->
+  <!-- ============================================= -->
+  <div class="doodle-decorations" aria-hidden="true">
+    <div class="doodle doodle-star doodle-1">✦</div>
+    <div class="doodle doodle-spiral doodle-2">〰</div>
+    <div class="doodle doodle-heart doodle-3">♥</div>
+    <div class="doodle doodle-star doodle-4">★</div>
+    <div class="doodle doodle-zigzag doodle-5">⚡</div>
+    <div class="doodle doodle-flower doodle-6">✿</div>
+    <div class="doodle doodle-heart doodle-7">♥</div>
+    <div class="doodle doodle-star doodle-8">✦</div>
+    <div class="doodle doodle-spiral doodle-9">〰</div>
+    <div class="doodle doodle-flower doodle-10">❀</div>
+
+    <!-- Crayon-drawn butterfly -->
+    <svg class="doodle doodle-butterfly" viewBox="0 0 60 50" width="60" height="50">
+      <ellipse cx="20" cy="18" rx="14" ry="12" fill="var(--crayon-pink)" stroke="var(--crayon-purple)" stroke-width="2"
+        opacity="0.5" />
+      <ellipse cx="40" cy="18" rx="14" ry="12" fill="var(--crayon-purple)" stroke="var(--crayon-pink)" stroke-width="2"
+        opacity="0.5" />
+      <ellipse cx="22" cy="32" rx="10" ry="9" fill="var(--crayon-orange)" stroke="var(--crayon-red)" stroke-width="1.5"
+        opacity="0.4" />
+      <ellipse cx="38" cy="32" rx="10" ry="9" fill="var(--crayon-yellow)" stroke="var(--crayon-orange)"
+        stroke-width="1.5" opacity="0.4" />
+      <line x1="30" y1="8" x2="30" y2="42" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+      <path d="M30 8 Q 24 2, 22 4" stroke="var(--crayon-brown)" stroke-width="1.5" fill="none" stroke-linecap="round" />
+      <path d="M30 8 Q 36 2, 38 4" stroke="var(--crayon-brown)" stroke-width="1.5" fill="none" stroke-linecap="round" />
+    </svg>
+
+    <!-- Crayon-drawn bird -->
+    <svg class="doodle doodle-bird doodle-bird-1" viewBox="0 0 50 30" width="50" height="30">
+      <path d="M5 20 Q 15 5, 25 15" stroke="var(--crayon-blue)" stroke-width="2.5" fill="none" stroke-linecap="round" />
+      <path d="M25 15 Q 35 5, 45 20" stroke="var(--crayon-blue)" stroke-width="2.5" fill="none"
+        stroke-linecap="round" />
+    </svg>
+    <svg class="doodle doodle-bird doodle-bird-2" viewBox="0 0 40 25" width="40" height="25">
+      <path d="M4 18 Q 12 5, 20 13" stroke="var(--crayon-green)" stroke-width="2" fill="none" stroke-linecap="round" />
+      <path d="M20 13 Q 28 5, 36 18" stroke="var(--crayon-green)" stroke-width="2" fill="none" stroke-linecap="round" />
+    </svg>
+    <svg class="doodle doodle-bird doodle-bird-3" viewBox="0 0 35 20" width="35" height="20">
+      <path d="M3 15 Q 10 4, 17 11" stroke="var(--crayon-orange)" stroke-width="2" fill="none" stroke-linecap="round" />
+      <path d="M17 11 Q 24 4, 32 15" stroke="var(--crayon-orange)" stroke-width="2" fill="none"
+        stroke-linecap="round" />
+    </svg>
+
+    <!-- Crayon-drawn kite -->
+    <svg class="doodle doodle-kite" viewBox="0 0 60 90" width="60" height="90">
+      <polygon points="30,5 50,35 30,55 10,35" fill="var(--crayon-red)" stroke="var(--crayon-orange)" stroke-width="2"
+        opacity="0.5" />
+      <line x1="30" y1="5" x2="30" y2="55" stroke="var(--crayon-orange)" stroke-width="1.5" opacity="0.4" />
+      <line x1="10" y1="35" x2="50" y2="35" stroke="var(--crayon-orange)" stroke-width="1.5" opacity="0.4" />
+      <path d="M30 55 Q 35 65, 28 70 Q 32 75, 26 82 Q 30 86, 25 90" stroke="var(--crayon-blue)" stroke-width="2"
+        fill="none" stroke-linecap="round" opacity="0.5" />
+    </svg>
+
+    <!-- Tiny crayon-drawn flowers on the ground -->
+    <svg class="doodle doodle-flower-drawing doodle-flower-d1" viewBox="0 0 40 50" width="40" height="50">
+      <line x1="20" y1="25" x2="20" y2="48" stroke="var(--crayon-green)" stroke-width="2" stroke-linecap="round" />
+      <circle cx="20" cy="20" r="6" fill="var(--crayon-yellow)" stroke="var(--crayon-orange)" stroke-width="1.5" />
+      <circle cx="14" cy="15" r="5" fill="var(--crayon-red)" opacity="0.6" />
+      <circle cx="26" cy="15" r="5" fill="var(--crayon-red)" opacity="0.6" />
+      <circle cx="14" cy="25" r="5" fill="var(--crayon-pink)" opacity="0.6" />
+      <circle cx="26" cy="25" r="5" fill="var(--crayon-pink)" opacity="0.6" />
+      <path d="M15 35 Q 20 30, 25 38" stroke="var(--crayon-green)" stroke-width="1.5" fill="none"
+        stroke-linecap="round" />
+    </svg>
+    <svg class="doodle doodle-flower-drawing doodle-flower-d2" viewBox="0 0 35 45" width="35" height="45">
+      <line x1="17" y1="22" x2="17" y2="43" stroke="var(--crayon-green)" stroke-width="2" stroke-linecap="round" />
+      <circle cx="17" cy="17" r="5" fill="var(--crayon-orange)" stroke="var(--crayon-yellow)" stroke-width="1.5" />
+      <circle cx="11" cy="13" r="4" fill="var(--crayon-purple)" opacity="0.5" />
+      <circle cx="23" cy="13" r="4" fill="var(--crayon-purple)" opacity="0.5" />
+      <circle cx="11" cy="22" r="4" fill="var(--crayon-blue)" opacity="0.5" />
+      <circle cx="23" cy="22" r="4" fill="var(--crayon-blue)" opacity="0.5" />
+    </svg>
+  </div>
+
+  <!-- ============================================= -->
+  <!--  HEADER / NAVBAR                              -->
+  <!-- ============================================= -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#" class="logo" id="logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" width="35" height="35" aria-hidden="true">
+          <path d="M 5 30 L 5 10 Q 15 5, 20 10 L 20 30 Q 15 25, 5 30 Z" fill="var(--crayon-yellow)" opacity="0.4"
+            stroke="var(--crayon-orange)" stroke-width="2" stroke-linejoin="round" />
+          <path d="M 35 30 L 35 10 Q 25 5, 20 10 L 20 30 Q 25 25, 35 30 Z" fill="var(--crayon-pink)" opacity="0.4"
+            stroke="var(--crayon-red)" stroke-width="2" stroke-linejoin="round" />
+          <line x1="20" y1="10" x2="20" y2="30" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+        <div class="logo-content">
+          <span class="logo-text">Maulana's Book!</span>
+          <svg class="logo-underline" viewBox="0 0 200 12" aria-hidden="true">
+            <path d="M2 8 Q 30 2, 60 7 T 120 5 T 198 8" stroke="var(--crayon-red)" stroke-width="3" fill="none"
+              stroke-linecap="round" />
+          </svg>
+        </div>
+      </a>
+      <nav class="nav" id="nav">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#about" class="nav-link" data-color="red">About</a></li>
+          <li><a href="#skills" class="nav-link" data-color="blue">My Superpowers</a></li>
+          <li><a href="#journey" class="nav-link" data-color="green">My Journey</a></li>
+          <li><a href="#projects" class="nav-link" data-color="orange">Projects</a></li>
+        </ul>
+        <div class="header-controls">
+          <div class="theme-hint" aria-hidden="true" id="theme-hint">
+            <span class="theme-hint-text">Magic switch!</span>
+            <svg viewBox="0 0 40 30" width="30" height="20" class="theme-hint-arrow">
+              <path d="M 5 10 Q 20 15 35 10" fill="none" stroke="var(--crayon-purple)" stroke-width="2.5"
+                stroke-linecap="round" />
+              <path d="M 28 3 L 36 10 L 28 17" fill="none" stroke="var(--crayon-purple)" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--crayon-orange)"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="var(--crayon-blue)"
+              stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================= -->
+    <!--  HERO SECTION                                 -->
+    <!-- ============================================= -->
+    <section class="hero" id="hero">
+      <div class="hero-doodles" aria-hidden="true">
+        <!-- Hand-drawn sun with smiley face -->
+        <svg class="hero-sun" viewBox="0 0 120 120" width="120" height="120">
+          <circle cx="60" cy="60" r="22" fill="var(--crayon-yellow)" stroke="var(--crayon-orange)" stroke-width="3" />
+          <!-- Smiley face on the sun -->
+          <circle cx="53" cy="56" r="2.5" fill="var(--crayon-orange)" />
+          <circle cx="67" cy="56" r="2.5" fill="var(--crayon-orange)" />
+          <path d="M52 65 Q 60 72, 68 65" stroke="var(--crayon-orange)" stroke-width="2" fill="none"
+            stroke-linecap="round" />
+          <g stroke="var(--crayon-yellow)" stroke-width="3" stroke-linecap="round" fill="none">
+            <line x1="60" y1="10" x2="58" y2="28" />
+            <line x1="95" y1="25" x2="82" y2="38" />
+            <line x1="110" y1="60" x2="92" y2="58" />
+            <line x1="95" y1="95" x2="82" y2="82" />
+            <line x1="60" y1="110" x2="62" y2="92" />
+            <line x1="25" y1="95" x2="38" y2="82" />
+            <line x1="10" y1="60" x2="28" y2="62" />
+            <line x1="25" y1="25" x2="38" y2="38" />
+          </g>
+        </svg>
+        <!-- Hand-drawn clouds -->
+        <svg class="hero-cloud" viewBox="0 0 160 80" width="160" height="80">
+          <path
+            d="M30 60 Q10 60 12 45 Q5 30 25 28 Q30 10 55 15 Q70 2 90 15 Q115 5 120 25 Q145 22 145 40 Q155 55 135 60 Z"
+            fill="white" stroke="var(--crayon-blue)" stroke-width="2.5" opacity="0.7" />
+        </svg>
+        <svg class="hero-cloud hero-cloud-2" viewBox="0 0 120 60" width="120" height="60">
+          <path d="M20 45 Q8 45 10 34 Q4 22 18 20 Q22 8 40 12 Q52 2 65 12 Q82 5 85 18 Q100 16 100 30 Q108 42 95 45 Z"
+            fill="white" stroke="var(--crayon-blue)" stroke-width="2" opacity="0.5" />
+        </svg>
+        <!-- Hand-drawn rainbow -->
+        <svg class="hero-rainbow" viewBox="0 0 200 100" width="200" height="100">
+          <path d="M10 95 Q 100 -20 190 95" fill="none" stroke="var(--crayon-red)" stroke-width="5" opacity="0.5"
+            stroke-linecap="round" />
+          <path d="M20 95 Q 100 -5 180 95" fill="none" stroke="var(--crayon-orange)" stroke-width="5" opacity="0.5"
+            stroke-linecap="round" />
+          <path d="M30 95 Q 100 10 170 95" fill="none" stroke="var(--crayon-yellow)" stroke-width="5" opacity="0.5"
+            stroke-linecap="round" />
+          <path d="M40 95 Q 100 25 160 95" fill="none" stroke="var(--crayon-green)" stroke-width="5" opacity="0.5"
+            stroke-linecap="round" />
+          <path d="M50 95 Q 100 40 150 95" fill="none" stroke="var(--crayon-blue)" stroke-width="5" opacity="0.5"
+            stroke-linecap="round" />
+        </svg>
+
+        <!-- ===== CRAYON LANDSCAPE SCENE (bottom of hero) ===== -->
+        <svg class="hero-landscape" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax slice">
+          <!-- Mountains -->
+          <path d="M0 260 L150 90 L200 130 L280 60 L360 160 L400 140 L500 260 Z" fill="var(--crayon-green)"
+            opacity="0.25" stroke="var(--crayon-green)" stroke-width="3" stroke-linejoin="round" />
+          <path d="M400 260 L550 100 L620 150 L700 70 L800 180 L850 160 L950 260 Z" fill="var(--crayon-blue)"
+            opacity="0.15" stroke="var(--crayon-blue)" stroke-width="2.5" stroke-linejoin="round" />
+          <path d="M800 260 L920 120 L980 160 L1060 80 L1120 150 L1200 260 Z" fill="var(--crayon-purple)" opacity="0.15"
+            stroke="var(--crayon-purple)" stroke-width="2.5" stroke-linejoin="round" />
+          <!-- Snow caps -->
+          <path d="M270 68 L280 60 L290 72 L285 68 Z" fill="white" opacity="0.7" />
+          <path d="M690 78 L700 70 L710 82 L705 78 Z" fill="white" opacity="0.6" />
+          <path d="M1050 88 L1060 80 L1070 92 L1065 88 Z" fill="white" opacity="0.6" />
+
+          <!-- Ground / grass -->
+          <rect x="0" y="230" width="1200" height="30" fill="var(--crayon-green)" opacity="0.15" />
+          <!-- Grass tufts -->
+          <g stroke="var(--crayon-green)" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4">
+            <path d="M50 235 Q 52 220, 55 235" />
+            <path d="M48 235 Q 45 218, 42 235" />
+            <path d="M200 235 Q 202 222, 205 235" />
+            <path d="M198 235 Q 195 220, 192 235" />
+            <path d="M350 233 Q 353 218, 356 233" />
+            <path d="M500 234 Q 503 220, 506 234" />
+            <path d="M498 234 Q 494 218, 490 234" />
+            <path d="M680 235 Q 683 220, 686 235" />
+            <path d="M850 233 Q 853 218, 856 233" />
+            <path d="M848 233 Q 844 216, 840 233" />
+            <path d="M1050 235 Q 1053 222, 1056 235" />
+          </g>
+
+          <!-- House -->
+          <g transform="translate(100, 160)">
+            <!-- House body -->
+            <rect x="0" y="25" width="50" height="40" fill="var(--crayon-orange)" stroke="var(--crayon-red)"
+              stroke-width="2.5" opacity="0.6" rx="1" />
+            <!-- Roof -->
+            <path d="M-8 28 L25 0 L58 28 Z" fill="var(--crayon-red)" stroke="var(--crayon-red)" stroke-width="2"
+              opacity="0.5" stroke-linejoin="round" />
+            <!-- Door -->
+            <rect x="18" y="40" width="14" height="25" rx="7" fill="var(--crayon-brown)" opacity="0.5" />
+            <!-- Windows -->
+            <rect x="5" y="32" width="10" height="10" fill="var(--crayon-yellow)" stroke="var(--crayon-brown)"
+              stroke-width="1.5" opacity="0.6" />
+            <rect x="35" y="32" width="10" height="10" fill="var(--crayon-yellow)" stroke="var(--crayon-brown)"
+              stroke-width="1.5" opacity="0.6" />
+            <!-- Chimney -->
+            <rect x="38" y="5" width="8" height="20" fill="var(--crayon-red)" opacity="0.4" />
+            <!-- Smoke -->
+            <path d="M42 5 Q 45 -5, 48 -2 Q 52 -10, 55 -6" stroke="#999" stroke-width="1.5" fill="none"
+              stroke-linecap="round" opacity="0.3" />
+          </g>
+
+          <!-- Tree 1 -->
+          <g transform="translate(180, 155)">
+            <rect x="10" y="45" width="10" height="30" fill="var(--crayon-brown)" opacity="0.5" rx="2" />
+            <circle cx="15" cy="32" r="20" fill="var(--crayon-green)" opacity="0.35" stroke="var(--crayon-green)"
+              stroke-width="2" />
+            <circle cx="8" cy="40" r="14" fill="var(--crayon-green)" opacity="0.3" />
+            <circle cx="22" cy="38" r="16" fill="var(--crayon-green)" opacity="0.3" />
+          </g>
+
+          <!-- Tree 2 (pine tree) -->
+          <g transform="translate(750, 160)">
+            <rect x="8" y="50" width="8" height="25" fill="var(--crayon-brown)" opacity="0.5" rx="1" />
+            <polygon points="12,10 -5,50 29,50" fill="var(--crayon-green)" opacity="0.35" stroke="var(--crayon-green)"
+              stroke-width="2" stroke-linejoin="round" />
+            <polygon points="12,20 0,45 24,45" fill="var(--crayon-green)" opacity="0.3" stroke-linejoin="round" />
+          </g>
+
+          <!-- Tree 3 -->
+          <g transform="translate(950, 165)">
+            <rect x="10" y="40" width="10" height="25" fill="var(--crayon-brown)" opacity="0.5" rx="2" />
+            <circle cx="15" cy="28" r="18" fill="var(--crayon-green)" opacity="0.35" stroke="var(--crayon-green)"
+              stroke-width="2" />
+            <circle cx="6" cy="35" r="12" fill="var(--crayon-green)" opacity="0.3" />
+            <circle cx="24" cy="33" r="13" fill="var(--crayon-green)" opacity="0.3" />
+          </g>
+
+          <!-- Stick figure person (waving) -->
+          <g transform="translate(320, 175)">
+            <!-- Head -->
+            <circle cx="12" cy="10" r="8" fill="var(--crayon-orange)" stroke="var(--crayon-brown)" stroke-width="2"
+              opacity="0.5" />
+            <!-- Eyes -->
+            <circle cx="9" cy="9" r="1.5" fill="var(--crayon-brown)" opacity="0.5" />
+            <circle cx="15" cy="9" r="1.5" fill="var(--crayon-brown)" opacity="0.5" />
+            <!-- Smile -->
+            <path d="M8 13 Q 12 17, 16 13" stroke="var(--crayon-brown)" stroke-width="1.5" fill="none"
+              stroke-linecap="round" opacity="0.5" />
+            <!-- Body -->
+            <line x1="12" y1="18" x2="12" y2="42" stroke="var(--crayon-brown)" stroke-width="2.5" stroke-linecap="round"
+              opacity="0.5" />
+            <!-- Arms (waving) -->
+            <line x1="12" y1="25" x2="-2" y2="32" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round"
+              opacity="0.5" />
+            <line x1="12" y1="25" x2="28" y2="15" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round"
+              opacity="0.5" />
+            <!-- Legs -->
+            <line x1="12" y1="42" x2="2" y2="58" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round"
+              opacity="0.5" />
+            <line x1="12" y1="42" x2="22" y2="58" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round"
+              opacity="0.5" />
+          </g>
+
+          <!-- Stick figure person 2 (walking) -->
+          <g transform="translate(600, 180)">
+            <circle cx="10" cy="8" r="7" fill="var(--crayon-pink)" stroke="var(--crayon-red)" stroke-width="2"
+              opacity="0.4" />
+            <circle cx="7" cy="7" r="1.2" fill="var(--crayon-red)" opacity="0.4" />
+            <circle cx="13" cy="7" r="1.2" fill="var(--crayon-red)" opacity="0.4" />
+            <path d="M7 11 Q 10 14, 13 11" stroke="var(--crayon-red)" stroke-width="1.2" fill="none"
+              stroke-linecap="round" opacity="0.4" />
+            <line x1="10" y1="15" x2="10" y2="36" stroke="var(--crayon-red)" stroke-width="2" stroke-linecap="round"
+              opacity="0.4" />
+            <line x1="10" y1="22" x2="-2" y2="30" stroke="var(--crayon-red)" stroke-width="1.8" stroke-linecap="round"
+              opacity="0.4" />
+            <line x1="10" y1="22" x2="22" y2="28" stroke="var(--crayon-red)" stroke-width="1.8" stroke-linecap="round"
+              opacity="0.4" />
+            <line x1="10" y1="36" x2="0" y2="52" stroke="var(--crayon-red)" stroke-width="1.8" stroke-linecap="round"
+              opacity="0.4" />
+            <line x1="10" y1="36" x2="22" y2="50" stroke="var(--crayon-red)" stroke-width="1.8" stroke-linecap="round"
+              opacity="0.4" />
+          </g>
+
+          <!-- Small flowers on the ground -->
+          <g opacity="0.4">
+            <circle cx="270" cy="228" r="4" fill="var(--crayon-red)" />
+            <line x1="270" y1="232" x2="270" y2="245" stroke="var(--crayon-green)" stroke-width="1.5"
+              stroke-linecap="round" />
+            <circle cx="450" cy="226" r="3.5" fill="var(--crayon-yellow)" />
+            <line x1="450" y1="229" x2="450" y2="242" stroke="var(--crayon-green)" stroke-width="1.5"
+              stroke-linecap="round" />
+            <circle cx="560" cy="228" r="4" fill="var(--crayon-purple)" />
+            <line x1="560" y1="232" x2="560" y2="244" stroke="var(--crayon-green)" stroke-width="1.5"
+              stroke-linecap="round" />
+            <circle cx="880" cy="226" r="3.5" fill="var(--crayon-pink)" />
+            <line x1="880" y1="229" x2="880" y2="241" stroke="var(--crayon-green)" stroke-width="1.5"
+              stroke-linecap="round" />
+            <circle cx="1100" cy="228" r="4" fill="var(--crayon-orange)" />
+            <line x1="1100" y1="232" x2="1100" y2="243" stroke="var(--crayon-green)" stroke-width="1.5"
+              stroke-linecap="round" />
+          </g>
+
+          <!-- Tiny birds in the sky -->
+          <g stroke-width="2" fill="none" stroke-linecap="round" opacity="0.3">
+            <path d="M400 40 Q 407 30, 414 40" stroke="var(--crayon-brown)" />
+            <path d="M414 40 Q 421 30, 428 40" stroke="var(--crayon-brown)" />
+            <path d="M480 60 Q 486 52, 492 60" stroke="var(--crayon-brown)" />
+            <path d="M492 60 Q 498 52, 504 60" stroke="var(--crayon-brown)" />
+            <path d="M850 50 Q 855 42, 860 50" stroke="var(--crayon-brown)" />
+            <path d="M860 50 Q 865 42, 870 50" stroke="var(--crayon-brown)" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title" id="hero-title">
+          <span class="hero-greeting" data-crayon="red">Hello!</span>
+          <span class="hero-name-line">I'm <span data-crayon="blue">Maulana</span> <span
+              data-crayon="green">Dzaki</span></span>
+          <span class="hero-name-line"><span data-crayon="orange">Ash</span> <span
+              data-crayon="purple">Shiddiqi</span></span>
+        </h1>
+        <p class="hero-subtitle">
+          A natural explorer who views coding as a tool for <em>digital storytelling</em> and solving <em>real-world
+            problems.</em>
+        </p>
+        <a href="#about" class="btn-crayon" id="cta-button">
+          <span>Explore My World!</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M5 12 L17 12 M13 7 L18 12 L13 17" stroke="currentColor" stroke-width="2.5" fill="none"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Crayon scribble underline for hero -->
+      <svg class="hero-scribble-divider" viewBox="0 0 1200 30" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          d="M0 15 Q 50 5, 100 15 T 200 15 T 300 15 T 400 15 T 500 15 T 600 15 T 700 15 T 800 15 T 900 15 T 1000 15 T 1100 15 T 1200 15"
+          stroke="var(--crayon-green)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.5" />
+      </svg>
+    </section>
+
+    <!-- ============================================= -->
+    <!--  CRAYON SCENE DIVIDER — Village Doodle         -->
+    <!-- ============================================= -->
+    <div class="crayon-scene-divider" aria-hidden="true">
+      <svg class="scene-village" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <!-- Rolling hills -->
+        <path d="M0 120 Q 100 60, 200 90 T 400 70 T 600 95 T 800 65 T 1000 85 T 1200 120 Z" fill="var(--crayon-green)"
+          opacity="0.15" />
+        <path d="M0 120 Q 150 80, 300 100 T 600 80 T 900 100 T 1200 120 Z" fill="var(--crayon-green)" opacity="0.1" />
+        <!-- Fence -->
+        <g stroke="var(--crayon-brown)" stroke-width="2" opacity="0.2">
+          <line x1="50" y1="85" x2="50" y2="105" />
+          <line x1="70" y1="82" x2="70" y2="102" />
+          <line x1="90" y1="84" x2="90" y2="104" />
+          <line x1="110" y1="83" x2="110" y2="103" />
+          <line x1="130" y1="85" x2="130" y2="105" />
+          <line x1="45" y1="90" x2="135" y2="88" />
+          <line x1="45" y1="98" x2="135" y2="96" />
+        </g>
+        <!-- Little car -->
+        <g transform="translate(900, 80)" opacity="0.3">
+          <rect x="0" y="8" width="35" height="14" rx="3" fill="var(--crayon-red)" stroke="var(--crayon-red)"
+            stroke-width="1.5" />
+          <path d="M6 8 Q 10 -2, 18 -2 Q 26 -2, 30 8" fill="var(--crayon-blue)" stroke="var(--crayon-blue)"
+            stroke-width="1.5" opacity="0.6" />
+          <circle cx="8" cy="24" r="4" fill="var(--crayon-brown)" stroke="var(--crayon-brown)" stroke-width="1.5" />
+          <circle cx="27" cy="24" r="4" fill="var(--crayon-brown)" stroke="var(--crayon-brown)" stroke-width="1.5" />
+        </g>
+        <!-- Tiny dog -->
+        <g transform="translate(500, 88)" opacity="0.25">
+          <ellipse cx="12" cy="10" rx="10" ry="6" fill="var(--crayon-brown)" />
+          <circle cx="24" cy="6" r="5" fill="var(--crayon-brown)" />
+          <circle cx="26" cy="5" r="1.5" fill="white" />
+          <line x1="2" y1="16" x2="2" y2="24" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <line x1="8" y1="16" x2="8" y2="24" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <line x1="16" y1="16" x2="16" y2="24" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <line x1="22" y1="16" x2="22" y2="24" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <path d="M0 8 Q -5 2, -8 6" stroke="var(--crayon-brown)" stroke-width="1.5" fill="none"
+            stroke-linecap="round" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- ============================================= -->
+    <!--  ABOUT ME SECTION                             -->
+    <!-- ============================================= -->
+    <section class="section about" id="about">
+      <h2 class="section-title" data-crayon="blue">
+        <span class="title-icon">🖍️</span> Who Am I?
+        <svg class="title-scribble" viewBox="0 0 300 12" aria-hidden="true">
+          <path d="M0 8 Q 40 2, 80 7 T 160 5 T 240 8 T 300 6" stroke="var(--crayon-blue)" stroke-width="3" fill="none"
+            stroke-linecap="round" />
+        </svg>
+      </h2>
+
+      <!-- Scattered Crayon Doodles -->
+      <div class="about-scattered-doodles" aria-hidden="true">
+        <!-- Orang main bola (football) -->
+        <svg class="about-doodle-item doodle-football" viewBox="0 0 100 100" width="80" height="80">
+          <circle cx="50" cy="20" r="10" fill="var(--crayon-orange)" stroke="var(--crayon-brown)" stroke-width="2" />
+          <line x1="50" y1="30" x2="50" y2="60" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="50" y1="40" x2="30" y2="30" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="50" y1="40" x2="70" y2="20" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="50" y1="60" x2="30" y2="80" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="50" y1="60" x2="70" y2="70" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="70" y1="70" x2="80" y2="90" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <circle cx="90" cy="80" r="8" fill="white" stroke="var(--crayon-blue)" stroke-width="2" />
+        </svg>
+
+        <!-- Orang main tennis -->
+        <svg class="about-doodle-item doodle-tennis" viewBox="0 0 100 100" width="80" height="80">
+          <circle cx="30" cy="30" r="10" fill="var(--crayon-pink)" stroke="var(--crayon-brown)" stroke-width="2" />
+          <line x1="30" y1="40" x2="30" y2="70" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="30" y1="50" x2="10" y2="40" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="30" y1="50" x2="60" y2="40" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <!-- Racket -->
+          <line x1="60" y1="40" x2="70" y2="30" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <ellipse cx="75" cy="25" rx="8" ry="12" fill="none" stroke="var(--crayon-green)" stroke-width="2"
+            transform="rotate(45 75 25)" />
+          <line x1="30" y1="70" x2="15" y2="90" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="30" y1="70" x2="45" y2="90" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <!-- Ball -->
+          <circle cx="85" cy="15" r="3" fill="var(--crayon-yellow)" />
+        </svg>
+
+        <!-- Traveller -->
+        <svg class="about-doodle-item doodle-traveller" viewBox="0 0 100 100" width="80" height="80">
+          <circle cx="50" cy="25" r="10" fill="var(--crayon-yellow)" stroke="var(--crayon-brown)" stroke-width="2" />
+          <!-- Backpack -->
+          <rect x="35" y="35" width="15" height="25" rx="3" fill="var(--crayon-blue)" stroke="var(--crayon-brown)"
+            stroke-width="2" />
+          <line x1="50" y1="35" x2="50" y2="65" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="50" y1="40" x2="35" y2="50" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="50" y1="40" x2="65" y2="55" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <!-- Stick/staff -->
+          <line x1="70" y1="30" x2="60" y2="90" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <line x1="50" y1="65" x2="40" y2="90" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="50" y1="65" x2="60" y2="90" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+        </svg>
+
+        <!-- Orang baca buku -->
+        <svg class="about-doodle-item doodle-reading" viewBox="0 0 100 100" width="80" height="80">
+          <circle cx="50" cy="20" r="10" fill="var(--crayon-orange)" stroke="var(--crayon-brown)" stroke-width="2" />
+          <line x1="50" y1="30" x2="50" y2="65" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <!-- Reading book in hands -->
+          <line x1="50" y1="40" x2="35" y2="50" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="50" y1="40" x2="65" y2="50" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <path d="M25 45 L50 55 L75 45 L75 60 L50 70 L25 60 Z" fill="var(--crayon-red)" stroke="var(--crayon-brown)"
+            stroke-width="2" opacity="0.8" />
+          <!-- Sitting -->
+          <line x1="50" y1="65" x2="70" y2="65" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="70" y1="65" x2="70" y2="90" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <!-- Chair -->
+          <line x1="40" y1="65" x2="80" y2="65" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <line x1="45" y1="65" x2="45" y2="90" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <line x1="75" y1="65" x2="75" y2="90" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+        </svg>
+
+        <!-- Orang main komputer -->
+        <svg class="about-doodle-item doodle-computer" viewBox="0 0 100 100" width="80" height="80">
+          <circle cx="35" cy="25" r="10" fill="var(--crayon-pink)" stroke="var(--crayon-brown)" stroke-width="2" />
+          <line x1="35" y1="35" x2="35" y2="65" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="35" y1="45" x2="55" y2="45" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <!-- Sitting -->
+          <line x1="35" y1="65" x2="55" y2="65" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <line x1="55" y1="65" x2="55" y2="85" stroke="var(--crayon-brown)" stroke-width="3" stroke-linecap="round" />
+          <!-- Chair -->
+          <line x1="25" y1="65" x2="65" y2="65" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <line x1="30" y1="65" x2="30" y2="90" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <line x1="60" y1="65" x2="60" y2="90" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <!-- Desk -->
+          <line x1="60" y1="55" x2="95" y2="55" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <line x1="85" y1="55" x2="85" y2="90" stroke="var(--crayon-brown)" stroke-width="2" stroke-linecap="round" />
+          <!-- Laptop -->
+          <line x1="65" y1="55" x2="75" y2="40" stroke="var(--crayon-blue)" stroke-width="3" stroke-linecap="round" />
+          <line x1="65" y1="55" x2="80" y2="55" stroke="var(--crayon-blue)" stroke-width="3" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <div class="notebook-paper" id="about-paper">
+        <div class="tape tape-left" aria-hidden="true"></div>
+        <div class="tape tape-right" aria-hidden="true"></div>
+        <div class="paper-holes" aria-hidden="true">
+          <span class="hole"></span><span class="hole"></span><span class="hole"></span>
+        </div>
+        <div class="red-margin" aria-hidden="true"></div>
+        <div class="paper-content">
+          <div class="profile-photo-container">
+            <svg class="profile-polaroid" viewBox="0 0 150 180" width="120" height="150"
+              aria-label="Crayon drawn profile photo">
+              <!-- Polaroid frame -->
+              <rect x="5" y="5" width="140" height="170" fill="#fff" stroke="var(--crayon-brown)" stroke-width="2"
+                filter="url(#pencil-stroke)" opacity="0.95" transform="rotate(-3 75 90)" />
+              <rect x="15" y="15" width="120" height="115" fill="var(--crayon-blue)" opacity="0.1"
+                stroke="var(--crayon-brown)" stroke-width="1.5" transform="rotate(-3 75 90)" />
+
+              <!-- Profile person doodle -->
+              <g stroke="var(--crayon-brown)" stroke-width="2.5" fill="none" stroke-linecap="round"
+                stroke-linejoin="round" transform="rotate(-3 75 90)">
+                <!-- Head -->
+                <circle cx="75" cy="55" r="22" fill="var(--crayon-orange)" opacity="0.6" />
+                <!-- Hair (scribble) -->
+                <path d="M 52 45 Q 60 25, 75 30 T 98 45" stroke="var(--crayon-brown)" stroke-width="3" />
+                <!-- Eyes -->
+                <circle cx="65" cy="50" r="2" fill="var(--crayon-brown)" />
+                <circle cx="85" cy="50" r="2" fill="var(--crayon-brown)" />
+                <!-- Glasses -->
+                <circle cx="65" cy="50" r="6" stroke="var(--crayon-blue)" stroke-width="1.5" fill="none" />
+                <circle cx="85" cy="50" r="6" stroke="var(--crayon-blue)" stroke-width="1.5" fill="none" />
+                <line x1="71" y1="50" x2="79" y2="50" stroke="var(--crayon-blue)" stroke-width="1.5" />
+                <!-- Smile -->
+                <path d="M 68 62 Q 75 70, 82 62" stroke="var(--crayon-red)" />
+                <!-- Body -->
+                <path d="M 45 130 Q 75 80, 105 130" fill="var(--crayon-green)" opacity="0.5" />
+                <path d="M 45 130 Q 75 80, 105 130" />
+              </g>
+
+              <!-- Tape holding the photo -->
+              <rect x="50" y="-2" width="50" height="15" fill="var(--tape-color)" stroke="rgba(200, 180, 120, 0.3)"
+                filter="url(#pencil-stroke)" transform="rotate(2 75 0)" />
+            </svg>
+          </div>
+          <div class="paper-text">
+            <p>
+              I'm a lifelong learner with a massive curiosity. To me, data isn't just rows of numbers—it's a <em>story
+                waiting to be told</em>. My drive comes from diving into the pages of a great book, exploring the world
+              through traveling, and stepping out of my comfort zone. I don't just build for the sake of coding; I care
+              deeply about creating solutions that <em>actually work</em> and make a <em>real-world impact</em>.
+            </p>
+          </div>
+        </div>
+        <div class="paper-torn-edge" aria-hidden="true"></div>
+      </div>
+
+      <!-- Crayon doodle: book and pencil -->
+      <div class="about-doodle" aria-hidden="true">
+        <svg viewBox="0 0 100 80" width="100" height="80">
+          <!-- Open book -->
+          <path d="M10 60 L10 20 Q 30 10, 50 20 L50 60 Q 30 50, 10 60 Z" fill="var(--crayon-blue)" opacity="0.3"
+            stroke="var(--crayon-blue)" stroke-width="2" />
+          <path d="M90 60 L90 20 Q 70 10, 50 20 L50 60 Q 70 50, 90 60 Z" fill="var(--crayon-red)" opacity="0.3"
+            stroke="var(--crayon-red)" stroke-width="2" />
+          <!-- Page lines -->
+          <line x1="18" y1="30" x2="42" y2="25" stroke="var(--crayon-blue)" stroke-width="1" opacity="0.3" />
+          <line x1="18" y1="38" x2="42" y2="33" stroke="var(--crayon-blue)" stroke-width="1" opacity="0.3" />
+          <line x1="18" y1="46" x2="42" y2="41" stroke="var(--crayon-blue)" stroke-width="1" opacity="0.3" />
+          <line x1="58" y1="25" x2="82" y2="30" stroke="var(--crayon-red)" stroke-width="1" opacity="0.3" />
+          <line x1="58" y1="33" x2="82" y2="38" stroke="var(--crayon-red)" stroke-width="1" opacity="0.3" />
+          <!-- Pencil -->
+          <g transform="translate(65, 5) rotate(30)">
+            <rect x="0" y="0" width="6" height="40" fill="var(--crayon-yellow)" stroke="var(--crayon-orange)"
+              stroke-width="1" opacity="0.5" rx="1" />
+            <polygon points="0,40 6,40 3,50" fill="var(--crayon-orange)" opacity="0.5" />
+            <rect x="0" y="0" width="6" height="5" fill="var(--crayon-pink)" opacity="0.4" rx="1" />
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!--  CORE SKILLS SECTION                          -->
+    <!-- ============================================= -->
+    <section class="section skills" id="skills">
+      <h2 class="section-title" data-crayon="red">
+        <span class="title-icon">⚡</span> My Superpowers!
+        <svg class="title-scribble" viewBox="0 0 300 12" aria-hidden="true">
+          <path d="M0 6 Q 50 2, 100 8 T 200 4 T 300 7" stroke="var(--crayon-red)" stroke-width="3" fill="none"
+            stroke-linecap="round" />
+        </svg>
+      </h2>
+
+      <div class="skills-grid">
+        <!-- Skill Card 1 — Data Science -->
+        <div class="skill-card" data-color="red" id="skill-data-science">
+          <div class="skill-icon">
+            <svg viewBox="0 0 80 80" width="80" height="80" aria-label="Crayon chart icon">
+              <!-- Bar chart drawn with crayon strokes -->
+              <rect x="10" y="50" width="12" height="22" rx="2" fill="var(--crayon-red)" opacity="0.8" />
+              <rect x="26" y="35" width="12" height="37" rx="2" fill="var(--crayon-orange)" opacity="0.8" />
+              <rect x="42" y="20" width="12" height="52" rx="2" fill="var(--crayon-yellow)" opacity="0.8" />
+              <rect x="58" y="40" width="12" height="32" rx="2" fill="var(--crayon-green)" opacity="0.8" />
+              <!-- Axes -->
+              <line x1="6" y1="72" x2="74" y2="72" stroke="var(--crayon-brown)" stroke-width="2.5"
+                stroke-linecap="round" />
+              <line x1="8" y1="10" x2="8" y2="74" stroke="var(--crayon-brown)" stroke-width="2.5"
+                stroke-linecap="round" />
+              <!-- Trend line -->
+              <path d="M14 48 Q 32 30, 48 18 T 66 38" stroke="var(--crayon-blue)" stroke-width="2" fill="none"
+                stroke-dasharray="4 3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3 class="skill-title">Data Science</h3>
+          <p class="skill-desc">Transforming raw data into meaningful stories.</p>
+        </div>
+
+        <!-- Skill Card 2 — Travel Planning -->
+        <div class="skill-card" data-color="blue" id="skill-travel-planning">
+          <div class="skill-icon">
+            <svg viewBox="0 0 80 80" width="80" height="80" aria-label="Crayon compass icon">
+              <!-- Compass circle -->
+              <circle cx="40" cy="40" r="28" fill="none" stroke="var(--crayon-blue)" stroke-width="2.5"
+                stroke-dasharray="5 3" />
+              <!-- Inner circle -->
+              <circle cx="40" cy="40" r="5" fill="var(--crayon-red)" opacity="0.8" />
+              <!-- Compass needle -->
+              <polygon points="40,12 37,38 40,40 43,38" fill="var(--crayon-red)" opacity="0.8" />
+              <polygon points="40,68 37,42 40,40 43,42" fill="var(--crayon-blue)" opacity="0.6" />
+              <!-- Direction letters -->
+              <text x="40" y="9" text-anchor="middle" fill="var(--crayon-red)" font-size="8"
+                font-family="'Patrick Hand', cursive" font-weight="bold">N</text>
+              <text x="40" y="78" text-anchor="middle" fill="var(--crayon-blue)" font-size="8"
+                font-family="'Patrick Hand', cursive">S</text>
+              <text x="8" y="44" text-anchor="middle" fill="var(--crayon-green)" font-size="8"
+                font-family="'Patrick Hand', cursive">W</text>
+              <text x="72" y="44" text-anchor="middle" fill="var(--crayon-orange)" font-size="8"
+                font-family="'Patrick Hand', cursive">E</text>
+            </svg>
+          </div>
+          <h3 class="skill-title">Travel Planning</h3>
+          <p class="skill-desc">Crafting well-structured itineraries for seamless global journeys.</p>
+        </div>
+
+        <!-- Skill Card 3 — Digital Exploration -->
+        <div class="skill-card" data-color="green" id="skill-digital-exploration">
+          <div class="skill-icon">
+            <svg viewBox="0 0 80 80" width="80" height="80" aria-label="Crayon globe icon">
+              <!-- Globe -->
+              <circle cx="40" cy="40" r="27" fill="none" stroke="var(--crayon-green)" stroke-width="2.5" />
+              <!-- Horizontal lines -->
+              <ellipse cx="40" cy="28" rx="24" ry="4" fill="none" stroke="var(--crayon-green)" stroke-width="1.5"
+                opacity="0.5" />
+              <ellipse cx="40" cy="40" rx="27" ry="5" fill="none" stroke="var(--crayon-green)" stroke-width="1.5"
+                opacity="0.5" />
+              <ellipse cx="40" cy="52" rx="24" ry="4" fill="none" stroke="var(--crayon-green)" stroke-width="1.5"
+                opacity="0.5" />
+              <!-- Vertical meridian -->
+              <ellipse cx="40" cy="40" rx="10" ry="27" fill="none" stroke="var(--crayon-green)" stroke-width="1.5"
+                opacity="0.5" />
+              <!-- Land blobs -->
+              <path d="M28 30 Q 35 26, 38 32 T 34 38 Q 28 36, 28 30Z" fill="var(--crayon-green)" opacity="0.4" />
+              <path d="M48 42 Q 55 38, 58 44 T 52 50 Q 46 48, 48 42Z" fill="var(--crayon-green)" opacity="0.4" />
+              <!-- Tiny plane -->
+              <text x="55" y="25" font-size="12" transform="rotate(-30 55 25)">✈</text>
+            </svg>
+          </div>
+          <h3 class="skill-title">Digital Exploration</h3>
+          <p class="skill-desc">Bringing inspirations from travels into digital experiences.</p>
+        </div>
+
+        <!-- Skill Card 4 — Impact-Driven Solutions -->
+        <div class="skill-card" data-color="orange" id="skill-impact-solutions">
+          <div class="skill-icon">
+            <svg viewBox="0 0 80 80" width="80" height="80" aria-label="Crayon star icon">
+              <!-- Big star -->
+              <polygon points="40,6 48,30 74,30 53,46 61,72 40,56 19,72 27,46 6,30 32,30" fill="var(--crayon-yellow)"
+                stroke="var(--crayon-orange)" stroke-width="2.5" stroke-linejoin="round" />
+              <!-- Sparkle dots -->
+              <circle cx="18" cy="15" r="2" fill="var(--crayon-red)" opacity="0.7" />
+              <circle cx="65" cy="12" r="1.5" fill="var(--crayon-blue)" opacity="0.7" />
+              <circle cx="70" cy="65" r="2" fill="var(--crayon-green)" opacity="0.7" />
+              <circle cx="12" cy="62" r="1.5" fill="var(--crayon-purple)" opacity="0.7" />
+              <!-- Inner lines for sparkle effect -->
+              <line x1="40" y1="24" x2="40" y2="20" stroke="var(--crayon-orange)" stroke-width="1.5"
+                stroke-linecap="round" opacity="0.6" />
+              <line x1="48" y1="36" x2="52" y2="34" stroke="var(--crayon-orange)" stroke-width="1.5"
+                stroke-linecap="round" opacity="0.6" />
+              <line x1="32" y1="36" x2="28" y2="34" stroke="var(--crayon-orange)" stroke-width="1.5"
+                stroke-linecap="round" opacity="0.6" />
+            </svg>
+          </div>
+          <h3 class="skill-title">Impact-Driven Solutions</h3>
+          <p class="skill-desc">Delivering technology that solves genuine challenges.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!--  EDUCATION TIMELINE                           -->
+    <!-- ============================================= -->
+    <section class="section journey" id="journey">
+      <h2 class="section-title" data-crayon="green">
+        <span class="title-icon">🗺️</span> My Adventure Log
+        <svg class="title-scribble" viewBox="0 0 300 12" aria-hidden="true">
+          <path d="M0 7 Q 60 2, 120 8 T 240 5 T 300 7" stroke="var(--crayon-green)" stroke-width="3" fill="none"
+            stroke-linecap="round" />
+        </svg>
+      </h2>
+
+      <div class="timeline" id="timeline">
+        <!-- Timeline Entry 1 -->
+        <div class="timeline-entry" data-color="red" id="timeline-entry-1">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-year">2026 — Present</div>
+            <h3 class="timeline-place">LIPIA Jakarta</h3>
+            <p class="timeline-desc">Higher Education in Economic Studies, bridging linguistic mastery with digital
+              analytical skills.</p>
+            <div class="timeline-doodle" aria-hidden="true">📖</div>
+          </div>
+        </div>
+
+        <!-- Timeline Entry 2 -->
+        <div class="timeline-entry" data-color="blue" id="timeline-entry-2">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-year">2020 — 2024</div>
+            <h3 class="timeline-place">Al-Irsyad Islamic Boarding School</h3>
+            <p class="timeline-desc">Language & Leadership. Mastered Arabic and English, and developed strong leadership
+              in the Student Council.</p>
+            <div class="timeline-doodle" aria-hidden="true">🌟</div>
+          </div>
+        </div>
+
+        <!-- Timeline Entry 3 -->
+        <div class="timeline-entry" data-color="green" id="timeline-entry-3">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-year">2017 — 2020</div>
+            <h3 class="timeline-place">Umar bin Khattab Islamic Boarding School, Riau</h3>
+            <p class="timeline-desc">Discipline & Core Values. Focused on religious studies and personal discipline.</p>
+            <div class="timeline-doodle" aria-hidden="true">🕌</div>
+          </div>
+        </div>
+
+        <!-- Timeline Entry 4 -->
+        <div class="timeline-entry" data-color="orange" id="timeline-entry-4">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-year">2011 — 2017</div>
+            <h3 class="timeline-place">SDIT Adzkia 2 Padang</h3>
+            <p class="timeline-desc">The Logical Foundation. Sharpened logical thinking by winning mathematics
+              competitions.</p>
+            <div class="timeline-doodle" aria-hidden="true">🧮</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!--  CRAYON SCENE DIVIDER — Adventure scene        -->
+    <!-- ============================================= -->
+    <div class="crayon-scene-divider" aria-hidden="true">
+      <svg class="scene-adventure" viewBox="0 0 1200 100" preserveAspectRatio="none">
+        <!-- Path / Road -->
+        <path d="M0 85 Q 200 60, 400 80 T 800 65 T 1200 85" stroke="var(--crayon-brown)" stroke-width="3" fill="none"
+          stroke-linecap="round" opacity="0.2" stroke-dasharray="10 8" />
+        <!-- Airplane -->
+        <g transform="translate(300, 20)" opacity="0.25">
+          <path d="M0 10 L30 10 L35 5 L40 10 L50 10 L45 15 L50 20 L40 15 L30 15 L0 15 Z" fill="var(--crayon-blue)"
+            stroke="var(--crayon-blue)" stroke-width="1.5" />
+          <line x1="20" y1="5" x2="20" y2="20" stroke="var(--crayon-blue)" stroke-width="1.5" opacity="0.5" />
+          <!-- Trail -->
+          <path d="M-5 12 Q -15 10, -25 14 Q -35 10, -45 13" stroke="var(--crayon-blue)" stroke-width="1.5" fill="none"
+            stroke-linecap="round" opacity="0.3" stroke-dasharray="4 4" />
+        </g>
+        <!-- Compass rose -->
+        <g transform="translate(1050, 25)" opacity="0.2">
+          <circle cx="20" cy="20" r="18" fill="none" stroke="var(--crayon-brown)" stroke-width="2" />
+          <line x1="20" y1="4" x2="20" y2="36" stroke="var(--crayon-red)" stroke-width="1.5" />
+          <line x1="4" y1="20" x2="36" y2="20" stroke="var(--crayon-blue)" stroke-width="1.5" />
+          <polygon points="20,4 17,18 23,18" fill="var(--crayon-red)" opacity="0.6" />
+        </g>
+        <!-- Cactus -->
+        <g transform="translate(700, 40)" opacity="0.2">
+          <rect x="8" y="10" width="8" height="35" rx="4" fill="var(--crayon-green)" stroke="var(--crayon-green)"
+            stroke-width="1.5" />
+          <path d="M8 25 Q 0 22, 0 30 Q 0 35, 5 33" stroke="var(--crayon-green)" stroke-width="1.5"
+            fill="var(--crayon-green)" />
+          <path d="M16 20 Q 22 18, 22 25 Q 22 30, 19 28" stroke="var(--crayon-green)" stroke-width="1.5"
+            fill="var(--crayon-green)" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- ============================================= -->
+    <!--  PROJECTS SECTION                             -->
+    <!-- ============================================= -->
+    <section class="section projects" id="projects">
+      <h2 class="section-title" data-crayon="orange">
+        <span class="title-icon">🎨</span> Magic Projects
+        <svg class="title-scribble" viewBox="0 0 300 12" aria-hidden="true">
+          <path d="M0 5 Q 40 10, 80 5 T 160 7 T 240 4 T 300 6" stroke="var(--crayon-orange)" stroke-width="3"
+            fill="none" stroke-linecap="round" />
+        </svg>
+      </h2>
+
+      <div class="projects-grid">
+        <!-- Project Card 1 -->
+        <div class="project-card" id="project-card-1">
+          <div class="project-scissors" aria-hidden="true">✂️</div>
+          <div class="project-inner">
+            <div class="project-placeholder-icon" aria-hidden="true">
+              <svg viewBox="0 0 60 60" width="60" height="60">
+                <rect x="10" y="10" width="40" height="40" rx="4" fill="none" stroke="var(--crayon-red)"
+                  stroke-width="2" stroke-dasharray="6 4" opacity="0.5" />
+                <text x="30" y="35" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="14"
+                  fill="var(--crayon-red)" opacity="0.6">?</text>
+              </svg>
+            </div>
+            <p class="project-coming-soon">Coming Soon!</p>
+            <p class="project-sub">Still coloring this page...</p>
+            <div class="project-crayons" aria-hidden="true">🖍️ 🖍️ 🖍️</div>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card" id="project-card-2">
+          <div class="project-scissors" aria-hidden="true">✂️</div>
+          <div class="project-inner">
+            <div class="project-placeholder-icon" aria-hidden="true">
+              <svg viewBox="0 0 60 60" width="60" height="60">
+                <rect x="10" y="10" width="40" height="40" rx="4" fill="none" stroke="var(--crayon-blue)"
+                  stroke-width="2" stroke-dasharray="6 4" opacity="0.5" />
+                <text x="30" y="35" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="14"
+                  fill="var(--crayon-blue)" opacity="0.6">?</text>
+              </svg>
+            </div>
+            <p class="project-coming-soon">Coming Soon!</p>
+            <p class="project-sub">Still coloring this page...</p>
+            <div class="project-crayons" aria-hidden="true">🖍️ 🖍️ 🖍️</div>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="project-card" id="project-card-3">
+          <div class="project-scissors" aria-hidden="true">✂️</div>
+          <div class="project-inner">
+            <div class="project-placeholder-icon" aria-hidden="true">
+              <svg viewBox="0 0 60 60" width="60" height="60">
+                <rect x="10" y="10" width="40" height="40" rx="4" fill="none" stroke="var(--crayon-green)"
+                  stroke-width="2" stroke-dasharray="6 4" opacity="0.5" />
+                <text x="30" y="35" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="14"
+                  fill="var(--crayon-green)" opacity="0.6">?</text>
+              </svg>
+            </div>
+            <p class="project-coming-soon">Coming Soon!</p>
+            <p class="project-sub">Still coloring this page...</p>
+            <div class="project-crayons" aria-hidden="true">🖍️ 🖍️ 🖍️</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Crayon art supplies doodle -->
+      <div class="projects-doodle" aria-hidden="true">
+        <svg viewBox="0 0 200 60" width="200" height="60">
+          <!-- Crayons -->
+          <rect x="10" y="10" width="12" height="40" rx="2" fill="var(--crayon-red)" stroke="var(--crayon-red)"
+            stroke-width="1" opacity="0.4" transform="rotate(-5 16 30)" />
+          <rect x="28" y="8" width="12" height="40" rx="2" fill="var(--crayon-blue)" stroke="var(--crayon-blue)"
+            stroke-width="1" opacity="0.4" transform="rotate(3 34 28)" />
+          <rect x="46" y="12" width="12" height="40" rx="2" fill="var(--crayon-yellow)" stroke="var(--crayon-yellow)"
+            stroke-width="1" opacity="0.4" transform="rotate(-2 52 32)" />
+          <rect x="64" y="9" width="12" height="40" rx="2" fill="var(--crayon-green)" stroke="var(--crayon-green)"
+            stroke-width="1" opacity="0.4" transform="rotate(4 70 29)" />
+          <rect x="82" y="11" width="12" height="40" rx="2" fill="var(--crayon-purple)" stroke="var(--crayon-purple)"
+            stroke-width="1" opacity="0.4" transform="rotate(-3 88 31)" />
+          <!-- Paint palette -->
+          <g transform="translate(120, 10)" opacity="0.3">
+            <ellipse cx="30" cy="22" rx="28" ry="18" fill="var(--crayon-orange)" stroke="var(--crayon-brown)"
+              stroke-width="2" opacity="0.4" />
+            <circle cx="20" cy="16" r="5" fill="var(--crayon-red)" opacity="0.6" />
+            <circle cx="35" cy="14" r="4" fill="var(--crayon-blue)" opacity="0.6" />
+            <circle cx="42" cy="24" r="4.5" fill="var(--crayon-green)" opacity="0.6" />
+            <circle cx="25" cy="28" r="4" fill="var(--crayon-yellow)" opacity="0.6" />
+            <circle cx="15" cy="25" r="3.5" fill="var(--crayon-purple)" opacity="0.6" />
+            <ellipse cx="10" cy="18" rx="4" ry="6" fill="var(--paper-cream)" opacity="0.7" />
+          </g>
+        </svg>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================= -->
+  <!--  FOOTER                                       -->
+  <!-- ============================================= -->
+  <footer class="footer" id="footer">
+    <svg class="footer-wave" viewBox="0 0 1200 30" preserveAspectRatio="none" aria-hidden="true">
+      <path
+        d="M0 15 Q 50 5, 100 15 T 200 15 T 300 15 T 400 15 T 500 15 T 600 15 T 700 15 T 800 15 T 900 15 T 1000 15 T 1100 15 T 1200 15"
+        stroke="var(--crayon-red)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4" />
+    </svg>
+    <div class="footer-content">
+      <p class="footer-text">Drawn with <span class="footer-heart">♥</span> and ton of crayon by
+        <strong>jamalhawkinsjr</strong>
+      </p>
+      <p class="footer-sub">© 2026 — Every doodle tells a story!</p>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/dzakee/" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 40 40" width="35" height="35">
+            <rect x="4" y="4" width="32" height="32" rx="8" fill="none" stroke="var(--crayon-orange)" stroke-width="3"
+              stroke-linecap="round" />
+            <circle cx="20" cy="20" r="8" fill="none" stroke="var(--crayon-orange)" stroke-width="3" />
+            <circle cx="30" cy="10" r="2.5" fill="var(--crayon-orange)" />
+          </svg>
+        </a>
+        <a href="https://id.linkedin.com/in/maulanadzaki/" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 40 40" width="35" height="35">
+            <rect x="4" y="4" width="32" height="32" rx="4" fill="none" stroke="var(--crayon-blue)" stroke-width="3"
+              stroke-linecap="round" />
+            <line x1="12" y1="16" x2="12" y2="30" stroke="var(--crayon-blue)" stroke-width="3" stroke-linecap="round" />
+            <circle cx="12" cy="10" r="2.5" fill="var(--crayon-blue)" />
+            <path d="M 20 30 L 20 18 Q 20 14, 25 14 T 30 18 L 30 30" fill="none" stroke="var(--crayon-blue)"
+              stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </a>
+        <a href="https://github.com/jamalhawkinsjr/" class="social-icon" aria-label="GitHub">
+          <svg viewBox="0 0 40 40" width="35" height="35">
+            <path
+              d="M20 34 C12 34 8 28 8 28 C8 28 10 24 14 26 C14 26 14 20 14 16 C14 16 10 8 14 10 C16 10 18 12 20 12 C22 12 24 10 26 10 C30 8 26 16 26 16 C26 20 26 26 26 26 C30 24 32 28 32 28 C32 28 28 34 20 34"
+              fill="none" stroke="var(--crayon-purple)" stroke-width="3" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@jamalhawkinsjr" class="social-icon" aria-label="YouTube">
+          <svg viewBox="0 0 40 40" width="35" height="35">
+            <rect x="2" y="8" width="36" height="24" rx="6" fill="none" stroke="var(--crayon-red)" stroke-width="3"
+              stroke-linecap="round" />
+            <polygon points="16,14 16,26 26,20" fill="none" stroke="var(--crayon-red)" stroke-width="3"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+      <div class="footer-crayons" aria-hidden="true">
+        <span style="color: var(--crayon-red)">▌</span>
+        <span style="color: var(--crayon-orange)">▌</span>
+        <span style="color: var(--crayon-yellow)">▌</span>
+        <span style="color: var(--crayon-green)">▌</span>
+        <span style="color: var(--crayon-blue)">▌</span>
+        <span style="color: var(--crayon-purple)">▌</span>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

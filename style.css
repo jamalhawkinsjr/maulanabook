@@ -1376,7 +1376,7 @@ body.dark-mode .theme-toggle:hover {
 /* ============================================= */
 body.dark-mode {
   --paper-cream: #1e1e22;
-  --paper-lines: #ffffff;
+  --paper-lines: rgba(255, 255, 255, 0.15);
   --paper-margin: #a85862;
   --paper-shadow: rgba(0, 0, 0, 0.7);
   --tape-color: rgba(120, 100, 60, 0.3);
@@ -1388,7 +1388,7 @@ body.dark-mode .header {
 }
 
 body.dark-mode .notebook-paper {
-  background: #242428;
+  background-color: #242428;
 }
 
 body.dark-mode .paper-content p {

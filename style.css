@@ -504,21 +504,35 @@ a {
 }
 
 .theme-toggle {
-  background: none;
-  border: none;
+  background: var(--paper-cream);
+  border: 2px solid var(--crayon-brown);
+  border-radius: var(--card-radius-round);
   cursor: pointer;
-  padding: 5px;
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   filter: url(#crayon-light);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 2.5px 2.5px 0 var(--crayon-brown);
 }
 
 .theme-toggle:hover {
   animation: wiggle 0.4s ease-in-out;
   transform: scale(1.1);
+  box-shadow: 3.5px 3.5px 0 var(--crayon-brown);
 }
+
+body.dark-mode .theme-toggle {
+  background: #2a2a2e;
+  border-color: #e0dcd3;
+  box-shadow: 2.5px 2.5px 0 #e0dcd3;
+}
+
+body.dark-mode .theme-toggle:hover {
+  box-shadow: 3.5px 3.5px 0 #e0dcd3;
+}
+
 
 .nav-toggle span {
   display: block;
@@ -1362,8 +1376,8 @@ a {
 /* ============================================= */
 body.dark-mode {
   --paper-cream: #1e1e22;
-  --paper-lines: #2d2d33;
-  --paper-margin: #6a3a41;
+  --paper-lines: #3e3e44;
+  --paper-margin: #a85862;
   --paper-shadow: rgba(0, 0, 0, 0.7);
   --tape-color: rgba(120, 100, 60, 0.3);
   color: #e0dcd3;
@@ -1394,6 +1408,28 @@ body.dark-mode .project-card {
   background: #2a2a2e;
 }
 
+body.dark-mode .timeline-place {
+  color: #ffffff;
+}
+
+body.dark-mode .timeline-desc {
+  color: #b8b0a0;
+}
+
+body.dark-mode .footer {
+  background:
+    repeating-linear-gradient(
+      transparent,
+      transparent 31px,
+      rgba(255, 255, 255, 0.04) 31px,
+      rgba(255, 255, 255, 0.04) 32px
+    );
+}
+
+body.dark-mode .footer-wave path {
+  opacity: 0.15;
+}
+
 body.dark-mode .nav-links {
   background: rgba(30, 30, 34, 0.97);
 }
@@ -1402,7 +1438,21 @@ body.dark-mode .nav-links {
 /*  RESPONSIVE DESIGN                            */
 /* ============================================= */
 @media (max-width: 768px) {
-  .theme-hint { display: none; }
+  .theme-hint {
+    display: inline-flex;
+    margin-right: -4px;
+    align-items: center;
+  }
+  .theme-hint-arrow {
+    display: none;
+  }
+  .theme-hint-text {
+    font-size: 0.9rem;
+    color: var(--crayon-purple);
+  }
+  body.dark-mode .theme-hint-text {
+    color: var(--crayon-purple-light);
+  }
   :root {
     --section-padding: 3.5rem 1.2rem;
   }

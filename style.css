@@ -1740,6 +1740,199 @@ body.dark-mode .speech-bubble::before {
 }
 
 
+/* ============================================= */
+/*  HERO BUTTON CONTAINER                        */
+/* ============================================= */
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Purple button variant */
+.btn-crayon.btn-purple {
+  background: var(--crayon-purple);
+  border-color: #8c42a8;
+  box-shadow:
+    3px 3px 0 var(--crayon-purple),
+    -1px -1px 0 rgba(255, 255, 255, 0.3) inset;
+}
+.btn-crayon.btn-purple:hover {
+  background: #9b53b3;
+  box-shadow:
+    4px 4px 0 var(--crayon-purple),
+    -1px -1px 0 rgba(255, 255, 255, 0.4) inset;
+}
+
+/* ============================================= */
+/*  GALLERY OF TRYING — Scrapbook Polaroid styles */
+/* ============================================= */
+.gallery-quote-container {
+  position: relative;
+  max-width: 750px;
+  margin: 3rem auto 4rem;
+  background: #fffdf5;
+  padding: 2.2rem 2.2rem 2.2rem 3.5rem;
+  border: 3px solid var(--crayon-brown);
+  border-radius: var(--card-radius-round);
+  box-shadow:
+    4px 4px 0 rgba(0,0,0,0.04),
+    8px 8px 25px var(--paper-shadow);
+  transform: rotate(-1deg);
+  filter: url(#crayon-heavy);
+  text-align: center;
+}
+
+body.dark-mode .gallery-quote-container {
+  background: #232326;
+  border-color: var(--crayon-purple-light);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+.gallery-quote {
+  font-family: var(--font-scribble);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  line-height: 1.6;
+  color: #4a3728;
+  font-style: italic;
+  font-weight: 600;
+}
+
+body.dark-mode .gallery-quote {
+  color: #eae5db;
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 6rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 4rem 3rem;
+  justify-items: center;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.polaroid-card {
+  position: relative;
+  background: #fff;
+  padding: 1.2rem 1.2rem 2.5rem;
+  box-shadow:
+    3px 10px 20px var(--paper-shadow),
+    0 2px 5px rgba(0,0,0,0.05);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  filter: url(#pencil-stroke);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 340px;
+  width: 100%;
+}
+
+body.dark-mode .polaroid-card {
+  background: #2a2a2e;
+  box-shadow: 5px 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Random rotations for wobbly scrapbook layout */
+.polaroid-card:nth-child(4n+1) { transform: rotate(-3deg) translateY(5px); }
+.polaroid-card:nth-child(4n+2) { transform: rotate(2.5deg) translateY(-8px); }
+.polaroid-card:nth-child(4n+3) { transform: rotate(-1.5deg) translateY(3px); }
+.polaroid-card:nth-child(4n+4) { transform: rotate(3.5deg) translateY(-4px); }
+
+.polaroid-card:hover {
+  transform: rotate(0deg) scale(1.06) translateY(-12px) !important;
+  box-shadow:
+    5px 15px 30px rgba(139, 109, 80, 0.25),
+    0 8px 16px rgba(0,0,0,0.12);
+  z-index: 10;
+}
+
+body.dark-mode .polaroid-card:hover {
+  box-shadow:
+    5px 15px 30px rgba(0, 0, 0, 0.5),
+    0 8px 16px rgba(0,0,0,0.25);
+}
+
+.polaroid-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #f0ebe4;
+  border: 2px solid #eae5db;
+  margin-bottom: 1.5rem;
+  position: relative;
+  border-radius: 2px;
+}
+
+body.dark-mode .polaroid-image-wrapper {
+  background: #1e1e22;
+  border-color: #3e3e42;
+}
+
+.polaroid-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.polaroid-card:hover .polaroid-image {
+  transform: scale(1.05);
+}
+
+.polaroid-caption {
+  font-family: var(--font-handwriting);
+  font-size: 1.4rem;
+  color: #4a3728;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 0.5rem;
+  word-wrap: break-word;
+}
+
+body.dark-mode .polaroid-caption {
+  color: #eae5db;
+}
+
+/* Tape styles for Polaroids */
+.polaroid-card::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  width: 90px;
+  height: 26px;
+  background: var(--tape-color);
+  border: 1px solid rgba(220, 200, 140, 0.25);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  z-index: 5;
+  opacity: 0.85;
+}
+
+.polaroid-card:nth-child(even)::before {
+  transform: translateX(-50%) rotate(5deg);
+  background: rgba(244, 143, 177, 0.65); /* Pink tape! */
+  border-color: rgba(232, 69, 60, 0.2);
+}
+
+.polaroid-card:nth-child(3n)::before {
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(144, 202, 249, 0.65); /* Blue tape! */
+  border-color: rgba(74, 174, 234, 0.2);
+}
+
 /* ---------- Accessibility: Reduced Motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,

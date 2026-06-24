@@ -228,15 +228,45 @@ document.addEventListener('DOMContentLoaded', () => {
   // ─── SMOOTH SCROLL FOR ALL ANCHOR LINKS ───
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
-      e.preventDefault();
       const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
+      if (targetId === '#') {
+        e.preventDefault();
+        return;
+      }
+
+      // Check if we are switching views
+      const targetIsGallery = targetId === '#gallery';
+      const currentIsGallery = window.location.hash === '#gallery';
+
+      if (targetIsGallery !== currentIsGallery) {
+        // Let hash change naturally so router handles showing/hiding
+        const navLinks = document.getElementById('nav-links');
+        const navToggle = document.getElementById('nav-toggle');
+        if (navLinks && navToggle) {
+          navLinks.classList.remove('open');
+          navToggle.classList.remove('active');
+        }
+        return;
+      }
+
+      // If in same view, do smooth scroll
+      e.preventDefault();
       const target = document.querySelector(targetId);
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        window.scrollTo({
+          top: target.offsetTop - 70,
+          behavior: 'smooth'
+        });
+        // Update URL hash manually
+        history.pushState(null, null, targetId);
+        
         // Close mobile menu if open
-        navLinks.classList.remove('open');
-        navToggle.classList.remove('active');
+        const navLinks = document.getElementById('nav-links');
+        const navToggle = document.getElementById('nav-toggle');
+        if (navLinks && navToggle) {
+          navLinks.classList.remove('open');
+          navToggle.classList.remove('active');
+        }
       }
     });
   });
@@ -266,10 +296,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
-    if (currentScroll > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    if (header) {
+      if (currentScroll > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
     }
     lastScroll = currentScroll;
   }, { passive: true });
@@ -280,6 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ...document.querySelectorAll('.skill-card'),
     ...document.querySelectorAll('.timeline-entry'),
     ...document.querySelectorAll('.project-card'),
+    ...document.querySelectorAll('.polaroid-card'),
     document.querySelector('.notebook-paper'),
     ...document.querySelectorAll('.crayon-scene-divider'),
     document.querySelector('.about-doodle'),
@@ -373,6 +406,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinkElements = document.querySelectorAll('.nav-link');
 
   function updateActiveNavLink() {
+    // If we are on the gallery view, always highlight the Gallery link and clear others
+    if (window.location.hash === '#gallery') {
+      navLinkElements.forEach(link => {
+        if (link.getAttribute('href') === '#gallery') {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      return;
+    }
+
     let currentActive = '';
     const scrollPosition = window.scrollY + 150; // offset for fixed header + buffer
 
@@ -389,6 +434,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     navLinkElements.forEach(link => {
+      // Ignore gallery link on homepage scroll
+      if (link.getAttribute('href') === '#gallery') {
+        link.classList.remove('active');
+        return;
+      }
+      
       link.classList.remove('active');
       if (link.getAttribute('href') === `#${currentActive}`) {
         link.classList.add('active');
@@ -424,6 +475,8 @@ document.addEventListener('DOMContentLoaded', () => {
     logo.addEventListener('click', (e) => {
       e.preventDefault();
       createCrayonBurst(e.clientX, e.clientY);
+      // Navigate back to homepage/top
+      window.location.hash = '';
     });
   }
 
@@ -593,5 +646,43 @@ document.addEventListener('DOMContentLoaded', () => {
   ['click', 'mousedown', 'touchstart', 'keydown'].forEach(event => {
     document.addEventListener(event, startMusicAutoplay, { passive: true });
   });
+
+  // ─── SINGLE PAGE ROUTING FOR GALLERY ───
+  const homeView = document.getElementById('home-view');
+  const galleryView = document.getElementById('gallery-view');
+
+  function checkRoute() {
+    const hash = window.location.hash;
+    if (hash === '#gallery') {
+      if (homeView && galleryView) {
+        homeView.style.display = 'none';
+        galleryView.style.display = 'block';
+        window.scrollTo({ top: 0 });
+      }
+    } else {
+      if (homeView && galleryView) {
+        homeView.style.display = 'block';
+        galleryView.style.display = 'none';
+      }
+      
+      // If navigating to a specific section on home view
+      if (hash && hash !== '#' && hash !== '#home') {
+        const target = document.querySelector(hash);
+        if (target) {
+          setTimeout(() => {
+            window.scrollTo({
+              top: target.offsetTop - 70,
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
+      }
+    }
+    updateActiveNavLink();
+  }
+
+  window.addEventListener('hashchange', checkRoute);
+  // Initial check on load
+  checkRoute();
 
 });

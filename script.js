@@ -686,3 +686,170 @@ document.addEventListener('DOMContentLoaded', () => {
   checkRoute();
 
 });
+
+/* ============================================= */
+/*  GALLERY SWIPE CAROUSEL — Mobile only         */
+/* ============================================= */
+(function () {
+  const MOBILE_BREAKPOINT = 768;
+
+  // Elements
+  const wrapper   = document.getElementById('gallery-swipe-wrapper');
+  const grid      = document.getElementById('gallery-grid');
+  const prevBtn   = document.getElementById('swipe-prev');
+  const nextBtn   = document.getElementById('swipe-next');
+  const dotsEl    = document.getElementById('swipe-dots');
+  const counterEl = document.getElementById('swipe-counter');
+
+  if (!wrapper || !grid || !prevBtn || !nextBtn || !dotsEl || !counterEl) return;
+
+  let cards     = [];
+  let current   = 0;
+  let total     = 0;
+  let dots      = [];
+  let isActive  = false; // only true on mobile
+
+  // ─── Setup ───────────────────────────────────────────
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    dots = [];
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('button');
+      d.className = 'swipe-dot';
+      d.setAttribute('role', 'tab');
+      d.setAttribute('aria-label', `Photo ${i + 1}`);
+      d.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(d);
+      dots.push(d);
+    }
+  }
+
+  function refreshCards() {
+    cards = Array.from(grid.querySelectorAll('.polaroid-card'));
+    total = cards.length;
+  }
+
+  function init() {
+    refreshCards();
+    if (total === 0) return;
+    buildDots();
+    goTo(0, true);
+  }
+
+  // ─── Navigation ──────────────────────────────────────
+  function goTo(index, instant) {
+    if (index < 0) index = 0;
+    if (index >= total) index = total - 1;
+    current = index;
+
+    // Translate the grid so the target card is centered
+    // Each card takes up 100% of the wrapper width (flex: 0 0 85% + 7.5% margin each side = 100%)
+    const offset = current * 100; // percentage units relative to wrapper
+    if (instant) {
+      grid.style.transition = 'none';
+    } else {
+      grid.style.transition = '';
+    }
+    grid.style.transform = `translateX(-${offset}%)`;
+
+    // Active class
+    cards.forEach((c, i) => c.classList.toggle('swipe-active', i === current));
+
+    // Dots
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+
+    // Counter
+    counterEl.textContent = `${current + 1} / ${total}`;
+
+    // Buttons
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+  }
+
+  function prev() { goTo(current - 1); }
+  function next() { goTo(current + 1); }
+
+  // ─── Button listeners ────────────────────────────────
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  // ─── Keyboard ────────────────────────────────────────
+  document.addEventListener('keydown', (e) => {
+    if (!isActive) return;
+    // Only when gallery view is visible
+    const galleryView = document.getElementById('gallery-view');
+    if (!galleryView || galleryView.style.display === 'none') return;
+    if (e.key === 'ArrowLeft')  { prev(); e.preventDefault(); }
+    if (e.key === 'ArrowRight') { next(); e.preventDefault(); }
+  });
+
+  // ─── Touch / Pointer swipe ───────────────────────────
+  let touchStartX = null;
+  let touchStartY = null;
+  let isDragging  = false;
+  const SWIPE_THRESHOLD = 50; // px to count as a swipe
+
+  wrapper.addEventListener('touchstart', (e) => {
+    if (!isActive) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isDragging  = true;
+  }, { passive: true });
+
+  wrapper.addEventListener('touchmove', (e) => {
+    if (!isActive || !isDragging || touchStartX === null) return;
+    const dx = e.touches[0].clientX - touchStartX;
+    const dy = e.touches[0].clientY - touchStartY;
+    // If horizontal movement dominates, prevent page scroll
+    if (Math.abs(dx) > Math.abs(dy)) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  wrapper.addEventListener('touchend', (e) => {
+    if (!isActive || !isDragging || touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) >= SWIPE_THRESHOLD) {
+      dx < 0 ? next() : prev();
+    }
+    touchStartX = null;
+    touchStartY = null;
+    isDragging  = false;
+  }, { passive: true });
+
+  // ─── Responsive toggle ───────────────────────────────
+  function checkBreakpoint() {
+    const mobile = window.innerWidth <= MOBILE_BREAKPOINT;
+    if (mobile && !isActive) {
+      isActive = true;
+      // Reset any desktop transform that may linger
+      grid.style.transform = '';
+      init();
+    } else if (!mobile && isActive) {
+      isActive = false;
+      // Clear mobile transform so desktop grid renders normally
+      grid.style.transform = '';
+      grid.style.transition = '';
+      cards.forEach(c => c.classList.remove('swipe-active'));
+    }
+  }
+
+  // Debounced resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(checkBreakpoint, 120);
+  }, { passive: true });
+
+  // Initial check (runs after DOM is ready)
+  checkBreakpoint();
+
+  // Also re-initialise when the gallery view is shown (hash navigation)
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash === '#gallery' && isActive) {
+      // Small delay so the view is visible before measuring
+      setTimeout(() => { refreshCards(); buildDots(); goTo(0, true); }, 50);
+    }
+  });
+}());
+

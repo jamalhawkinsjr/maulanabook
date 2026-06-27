@@ -1933,6 +1933,148 @@ body.dark-mode .polaroid-caption {
   border-color: rgba(74, 174, 234, 0.2);
 }
 
+/* ============================================= */
+/*  GALLERY — Mobile Swipe Carousel               */
+/* ============================================= */
+@media (max-width: 768px) {
+  /* Outer wrapper becomes the swipe viewport */
+  .gallery-swipe-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    touch-action: pan-y pinch-zoom; /* allow vertical scroll, but horizontal managed by JS */
+  }
+
+  /* The grid becomes a horizontal flex track */
+  .gallery-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
+    margin-top: 0;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    padding: 2.5rem 0 3rem; /* space for tape top + card shadow bottom */
+  }
+
+  .polaroid-card {
+    flex: 0 0 85%;
+    max-width: 85%;
+    margin: 0 7.5%; /* centers single card + partial peek of next */
+    transform: rotate(-1.5deg) !important; /* override nth-child rotations */
+  }
+
+  .polaroid-card:nth-child(even) {
+    transform: rotate(1.5deg) !important;
+  }
+
+  /* Show only one card at a time visually */
+  .gallery-grid .polaroid-card {
+    opacity: 0.45;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .gallery-grid .polaroid-card.swipe-active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1.04) !important;
+  }
+
+  /* Swipe nav arrows */
+  .swipe-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2.5px solid var(--crayon-purple);
+    background: rgba(255, 248, 231, 0.92);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: var(--crayon-purple);
+    box-shadow: 2px 4px 12px rgba(0,0,0,0.12);
+    transition: background 0.2s, transform 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .swipe-btn:active {
+    transform: translateY(-50%) scale(0.9);
+    background: rgba(200, 170, 250, 0.5);
+  }
+
+  .swipe-btn.swipe-prev { left: 6px; }
+  .swipe-btn.swipe-next { right: 6px; }
+
+  .swipe-btn:disabled {
+    opacity: 0.25;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  body.dark-mode .swipe-btn {
+    background: rgba(30, 30, 34, 0.92);
+    border-color: var(--crayon-purple-light);
+    color: var(--crayon-purple-light);
+  }
+
+  /* Dot indicators */
+  .swipe-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0.8rem 0 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .swipe-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--crayon-purple);
+    opacity: 0.25;
+    transition: opacity 0.25s, transform 0.25s;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .swipe-dot.active {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+
+  /* Counter badge */
+  .swipe-counter {
+    display: block;
+    text-align: center;
+    font-family: var(--font-handwriting);
+    font-size: 1.1rem;
+    color: var(--crayon-purple);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  body.dark-mode .swipe-counter {
+    color: var(--crayon-purple-light);
+  }
+}
+
+@media (min-width: 769px) {
+  /* Hide swipe UI on desktop */
+  .swipe-btn,
+  .swipe-dots,
+  .swipe-counter {
+    display: none !important;
+  }
+}
+
 /* ---------- Accessibility: Reduced Motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,

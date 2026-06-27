@@ -1046,32 +1046,202 @@
       </div>
 
       <!-- Polaroids Grid -->
-      <div class="gallery-grid" class="gallery-container">
-        <!-- Polaroid Item 1 -->
-        <div class="polaroid-card">
-          <div class="polaroid-image-wrapper">
-            <img src="image/1.png" alt="First Drawing Attempt" class="polaroid-image" />
-          </div>
-          <p class="polaroid-caption">Ta-da! 🏆 Look at this super shiny prize! I went on a giant number quest across
-            West Sumatra and defeated the
-            trickiest math puzzles for my school! I guess my brain really is a super puzzle machine! 🧠✨ 🖍️✨</p>
-        </div>
+      <div class="gallery-swipe-wrapper" id="gallery-swipe-wrapper">
+        <!-- Swipe prev / next buttons (mobile only) -->
+        <button class="swipe-btn swipe-prev" id="swipe-prev" aria-label="Previous photo">&#8592;</button>
+        <button class="swipe-btn swipe-next" id="swipe-next" aria-label="Next photo">&#8594;</button>
 
-        <!-- Polaroid Item 2 -->
-        <div class="polaroid-card">
-          <div class="polaroid-image-wrapper">
-            <img src="image/2.png" alt="Second Drawing Attempt" class="polaroid-image" />
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Polaroid Item 1 -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/1.png" alt="First Drawing Attempt" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">Ta-da! 🏆 Look at this super shiny prize! I went on a giant number quest across
+              West Sumatra and defeated the
+              trickiest math puzzles for my school! I guess my brain really is a super puzzle machine! 🧠✨ 🖍️✨</p>
           </div>
-          <p class="polaroid-caption">Me and my super explorer squad: Hebron, Salman, and Rozi! ✈️🌍 We flew all the way
-            to a magical place called
-            Taif in Saudi Arabia! We put on our invisible magic boots and went on a giant adventure together! Best trip
-            ever!</p>
-        </div>
 
-        <!-- ======================================================= -->
-        <!-- TEMPLATE: COPY AND PASTE THIS BLOCK TO ADD MORE PHOTOS  -->
-        <!-- ======================================================= -->
-        <!--
+          <!-- Polaroid Item 2 -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/2.png" alt="Second Drawing Attempt" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">Me and my super explorer squad: Hebron, Salman, and Rozi! ✈️🌍 We flew all the
+              way
+              to a magical place called
+              Taif in Saudi Arabia! We put on our invisible magic boots and went on a giant adventure together! Best
+              trip
+              ever!</p>
+          </div>
+
+          <!-- Polaroid Item 3 (IMG_8960.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8960.PNG" alt="Sleepy Spotted Puppy" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">My very first besties at the magic boarding school! 🕌💛 We live together in
+              Room Bahrain 3! It is not just a bedroom, it's a giant room where we practice being super good kids, pray
+              together, and share our yummy snacks!</p>
+          </div>
+
+          <!-- Polaroid Item 4 (IMG_8961.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8961.PNG" alt="Wizard Chick" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">Superhero training day: sharing yummy treats! 🦸‍♂️✨
+              We ran around giving out sweet snacks so everyone can smile when the big fasting bell rings! Fighting
+              hunger and spreading smiles with my best squad ever!</p>
+          </div>
+
+          <!-- Polaroid Item 5 (IMG_8962.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8962.PNG" alt="Smiling Puppy" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">Woohoo! 🎓✨ I finally finished the giant Junior High School quest! Look at this
+              official superhero certificate! I collected all the magic school points, passed the boss levels, and now
+              I’m officially ready for the High School adventure! Level up! 🚀🥇</p>
+          </div>
+
+          <!-- Polaroid Item 6 (IMG_8963.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8963.PNG" alt="Stegosaurus Dinosaur" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">Taking a quick superhero break with my best climbing buddy, Zidane! 🧗‍♂️🏔️ We
+              are walking all the way up into the clouds on giant
+              Mount Merbabu! Our legs are a little tired from climbing the big green hills, but our explorer hearts are
+              ready to reach the top! Catch us if you can! ☁️✨</p>
+          </div>
+
+          <!-- Polaroid Item 7 (IMG_8964.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8964.PNG" alt="Boy in Backwards Cap" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">WE DID IT! 🏔️👑 We finally climbed all the way to the very, very top of giant
+              Mount Merbabu! Now we are standing way up in the sky, touching the
+              fluffy clouds like real kings of the mountain! My magic explorer boots brought me to the highest place
+              ever with the best squad! ☁️✨</p>
+          </div>
+
+          <!-- Polaroid Item 8 (IMG_8965.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8965.PNG" alt="Girl in Cat Hoodie" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">Vroom vroom! 🏎️💨 Look at me go! Today I put on my super shiny helmet and
+              learned how to drive a real mini racing car! I stepped on the gas pedal,
+              zoomed around the track super fast, and turned the steering wheel like a professional racer. Watch out
+              world, the fastest kid is on the track! 🏁🏆</p>
+          </div>
+
+          <!-- Polaroid Item 9 (IMG_8966.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8966.PNG" alt="Cat in Cardboard Box" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">WE DID IT! 🎓✨ We finally completed the ultimate High School quest! Look at us,
+              we passed all the hardest boss levels, collected all the magic study points,
+              and now we are officially big kids ready for the university adventure! Level 12 is 100% finished! 🚀🏆</p>
+          </div>
+
+          <!-- Polaroid Item 10 (IMG_8967.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8967.PNG" alt="Girl with Space Buns" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">The High School quest is done, so the beach quest begins! 🏖️🦀 Me and my
+              bestest friends brought our magic explorer boots all the way to beautiful Lombok!
+              We are building giant sandcastles, looking for hidden seashells, and laughing until our tummies hurt under
+              the warm sun! High fives for the holiday team! ☀️🕶️</p>
+          </div>
+
+          <!-- Polaroid Item 11 (IMG_8968.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8968.PNG" alt="Hamster holding a Heart" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">Whoa, look at me! 🏄‍♂️🌊 Today I put on my magic balance boots and learned how
+              to ride on top of giant ocean waves! At first, the water splashed me and
+              I went splash into the sea, but then I stood up like a brave ocean king! I am officially a wave rider now!
+              🌊✨</p>
+          </div>
+
+          <!-- Polaroid Item 12 (IMG_8969.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8969.PNG" alt="Brachiosaurus Dinosaur" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">A beautiful journey to God's most special house! 🕌🕋 Me and Salman packed our
+              bags and traveled far away for Umrah. Standing next to the big,
+              beautiful Ka'bah made my heart feel super quiet and happy. I prayed for everyone and told God how much I
+              love Him! So glad to go on this holy adventure with my best brother! 💛✨</p>
+          </div>
+
+          <!-- Polaroid Item 13 (IMG_8970.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8970.PNG" alt="Lazy Cat on its Back" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">Welcome to the land of giant rock castles! 🏜️🏰 Me, Hebron, and Rakha went on a
+              time-travel adventure to a magical place called Al-Ula! It feels like we are
+              walking inside a cool movie scene with huge mountains made of sand and secret history everywhere. Our
+              magic explorer boots are getting dusty, but we are having the best time! 🚀🐪</p>
+          </div>
+
+          <!-- Polaroid Item 14 (IMG_8971.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8971.PNG" alt="Kid in Dinosaur Onesie" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">History detective mission: unlocked! 🕵️‍♂️📜 I traveled to Hagia Sophia, a
+              super old and beautiful place where two different worlds meet! The giant circles with
+              beautiful writing look like magical superhero shields. I spent the whole time looking up with a giant
+              smile because my brain loves discovering cool old stories! 🧠🕌</p>
+          </div>
+
+          <!-- Polaroid Item 15 (IMG_8972.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8972.PNG" alt="Baby Seal" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">The best peaceful adventure with Salman! 🕋🕊️ We walked on the beautiful shiny
+              floors of Masjid Nabawi and made big prayers together. We even got to see the
+              beautiful Green Dome! No video games today, just holding hands and telling God and the Prophet how much we
+              love them. Alhamdulillah for this giant blessing! 🤲💚</p>
+          </div>
+
+          <!-- Polaroid Item 16 (IMG_8973.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8973.PNG" alt="Happy Penguin" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">OH MY GOD, WE SAW THEM! 🏟️⚡ Today I went on a giant soccer adventure to Jeddah
+              and saw my ultimate favorite football superheroes in real life:
+              Cristiano Ronaldo and Karim Benzema! It felt like watching a live-action video game! They ran so fast,
+              kicked the ball so hard, and the whole stadium cheered like crazy! My soccer heart is exploding with
+              happiness! ⚽🔥</p>
+          </div>
+
+          <!-- Polaroid Item 17 (IMG_8974.PNG) -->
+          <div class="polaroid-card">
+            <div class="polaroid-image-wrapper">
+              <img src="image/IMG_8974.PNG" alt="Cat in a Coffee Mug" class="polaroid-image" />
+            </div>
+            <p class="polaroid-caption">EL CLASICO IN REAL LIFE! 🏟️⚪ Me and Hebron just watched the biggest soccer
+              battle on earth! We cheered super duper loud for Real Madrid until our throats got tired, and our team
+              played
+              like absolute superheroes on the grass! The stadium was exploding with magic and we are the happiest
+              Madridistas today! HALA MADRID! 🦅⚽</p>
+          </div>
+
+          <!-- ======================================================= -->
+          <!-- TEMPLATE: COPY AND PASTE THIS BLOCK TO ADD MORE PHOTOS  -->
+          <!-- ======================================================= -->
+          <!--
         <div class="polaroid-card">
           <div class="polaroid-image-wrapper">
             <img src="image/YOUR_PHOTO_NAME.png" alt="Description of Photo" class="polaroid-image" />
@@ -1079,8 +1249,15 @@
           <p class="polaroid-caption">Write a cute story or description here! 🎨🖌️</p>
         </div>
         -->
-        <!-- ======================================================= -->
+          <!-- ======================================================= -->
+        </div>
+        <!-- /gallery-grid -->
       </div>
+      <!-- /gallery-swipe-wrapper -->
+
+      <!-- Swipe counter + dots (mobile only) -->
+      <span class="swipe-counter" id="swipe-counter" aria-live="polite">1 / 17</span>
+      <div class="swipe-dots" id="swipe-dots" role="tablist" aria-label="Photo navigation"></div>
     </div>
   </main>
 
